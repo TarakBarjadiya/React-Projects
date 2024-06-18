@@ -1,13 +1,24 @@
 import Button from "../utils/Button";
 
-export default function Sidebar() {
+let liClass = "my-2 relative cursor-pointer overflow-x-hidden hover:text-neutral-200 hover:tracking-wide hover:tooltip"
+
+export default function Sidebar({ onStartCreateNew, projectData }) {
+  console.log(projectData, typeof (projectData))
   return (
     <>
-      <section className="bg-stone-900 basis-1/4 flex-col rounded-tr-3xl mt-10 w-80">
+      <section className="col-span-1 bg-stone-900 p-5 h-full w-1/5 fixed overflow-y-auto scrollStyle">
         <h1 className="text-neutral-200 p-6 font-semibold text-2xl uppercase mt-14">
           Your Projects
         </h1>
-        <Button>Add New +</Button>
+        <Button style="light" onClick={onStartCreateNew}>Add New +</Button>
+        <ul className="bg-stone-800 bg-opacity-30 text-neutral-400 font-medium m-2 p-2">
+          {projectData.map((project) => (
+            <li className={liClass}>
+              <span className="block whitespace-nowrap text-ellipsis overflow-hidden">{project.title}</span>
+              <div className="tooltip">{project.title}</div>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
