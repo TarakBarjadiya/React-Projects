@@ -17,7 +17,7 @@ export default function Tasks({ onTaskAdd, onDelete, taskDetail }) {
   function handleAddTask() {
     const taskInput = taskField.current.value;
     if (taskInput.trim() === "") {
-        return
+      return;
     }
     onTaskAdd(taskInput);
     taskField.current.value = "";

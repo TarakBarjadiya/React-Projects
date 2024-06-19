@@ -35,6 +35,7 @@ function App() {
       return {
         ...prevState,
         tasks: prevState.tasks.filter((task) => task.taskId !== id),
+        // * This will store all other task in tasks[] except clicked
       };
     });
   }

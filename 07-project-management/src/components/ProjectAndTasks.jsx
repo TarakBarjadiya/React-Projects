@@ -6,13 +6,13 @@ export default function ProjectAndTasks({
   onProjectDelete,
   onTaskAdd,
   onTaskClear,
-  taskDetail
+  taskDetail,
 }) {
   const title = selectedProjectId.title;
   const descr = selectedProjectId.description;
   const creationDate = selectedProjectId.creationDate;
   const dueDate = selectedProjectId.date;
-  console.log(taskDetail)
+  console.log(taskDetail);
   return (
     <>
       <section className="flex w-full flex-col">
@@ -23,7 +23,11 @@ export default function ProjectAndTasks({
           creationDate={creationDate}
           dueDate={dueDate}
         />
-        <Tasks onTaskAdd={onTaskAdd} onDelete={onTaskClear} taskDetail={taskDetail}/>
+        <Tasks
+          onTaskAdd={onTaskAdd}
+          onDelete={onTaskClear}
+          taskDetail={taskDetail}
+        />
       </section>
     </>
   );
