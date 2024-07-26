@@ -10,6 +10,10 @@ export default function Login() {
     const enteredPassword = password.current.value;
 
     console.log(enteredEmail, enteredPassword);
+
+    //! not recommended
+    email.current.value = '';
+    password.current.value = '';
   };
 
   return (

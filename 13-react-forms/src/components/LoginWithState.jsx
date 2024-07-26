@@ -26,6 +26,11 @@ export default function LoginWithState() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(enteredValue);
+
+    setEnteredValue({
+      email: '',
+      password: '',
+    });
   };
 
   return (
