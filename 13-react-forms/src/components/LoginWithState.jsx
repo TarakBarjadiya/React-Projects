@@ -16,10 +16,28 @@ export default function LoginWithState() {
     password: '',
   });
 
+  const [didEdit, setDidEdit] = useState({
+    email: false,
+    password: false,
+  });
+
+  const emailIsInvalid = didEdit.email && !enteredValue.email.includes('@');
+
   const handleInput = (identifier, value) => {
     setEnteredValue((prevState) => ({
       ...prevState,
       [identifier]: value,
+    }));
+    setDidEdit((prevState)=>({
+      ...prevState,
+      [identifier]:false
+    }))
+  };
+
+  const handleInputBlur = (identifier) => {
+    setDidEdit((prevState) => ({
+      ...prevState,
+      [identifier]: true,
     }));
   };
 
@@ -44,6 +62,7 @@ export default function LoginWithState() {
             id="email"
             type="email"
             name="email"
+            onBlur={()=>handleInputBlur("email")}
             onChange={(event) => handleInput('email', event.target.value)}
             value={enteredValue.email}
           />
@@ -60,6 +79,7 @@ export default function LoginWithState() {
           />
         </div>
       </div>
+      <div className="control-error">{emailIsInvalid && <p>Please enter a valid email address.</p>}</div>
 
       <p className="form-actions">
         <button className="button button-flat">Reset</button>
