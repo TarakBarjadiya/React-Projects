@@ -1,19 +1,27 @@
+import { useEffect, useState } from 'react';
+import MealItem from './MealItem';
+
 export default function Meals() {
+    const [mealsData, setMealsData] = useState([]);
+
+    useEffect(() => {
+        async function fetchMeals() {
+            const response = await fetch('http://localhost:3000/meals');
+            const mealsData = await response.json();
+
+            if (!response.ok) {
+                console.log('failed to fetch meals data');
+            }
+            setMealsData(mealsData);
+        }
+        fetchMeals();
+    }, []);
+
     return (
         <ul id="meals">
-            <li className="meal-item">
-                <article>
-                    <img src="" alt="" />
-                    <div>
-                        <h3>title</h3>
-                        <p className="meal-item-price">8.99</p>
-                        <p className="meal-item-description">description</p>
-                    </div>
-                    <p>
-                        <button className="button">Add to Cart</button>
-                    </p>
-                </article>
-            </li>
+            {mealsData.map((meal) => (
+                <MealItem key={meal.id} meal={meal}/>
+            ))}
         </ul>
     );
 }

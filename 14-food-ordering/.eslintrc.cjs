@@ -1,3 +1,5 @@
+import react from 'eslint-plugin-import/config/react';
+
 module.exports = {
     env: {
         browser: true,
@@ -21,6 +23,7 @@ module.exports = {
     },
     plugins: ['react'],
     rules: {
+        'react.prop-types': 0,
         // Customize rules as per your project's needs
     },
     settings: {
