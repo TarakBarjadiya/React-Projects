@@ -103,7 +103,7 @@ h1 {
   border-radius: 4px;
 }
 
-.meal-item-actions button{
+.meal-item-actions button {
   cursor: pointer;
   font-size: small;
   padding: 10px;
@@ -113,10 +113,12 @@ h1 {
   background-color: #ffc404;
   color: #312c1d;
 }
-.meal-item-actions button:hover{
+
+.meal-item-actions button:hover {
   background-color: #312c1d;
   color: #ffc404;
 }
+
 .cart h2 {
   margin: 1rem 0;
 }
@@ -269,4 +271,9 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.loading-state {
+  font-size: larger;
+  text-align: center;
 }
