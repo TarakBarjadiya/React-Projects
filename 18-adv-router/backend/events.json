@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Another Event","image":"https://www.eventbookings.com/wp-content/uploads/2024/01/Corporate-events-are-gatherings-that-companies-or-organisations-host-for-their-stakeholders-clients-or-staff-1024x683.jpg","date":"2025-10-08","description":"This will be amazing...","id":"5a8e0c96-b4ad-4db4-b922-249688bd1820"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
