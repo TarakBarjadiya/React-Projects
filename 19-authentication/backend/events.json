@@ -1,12 +1,1 @@
-{
-  "events": [
-    {
-      "title": "A new event",
-      "image": "https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg",
-      "date": "2022-10-01",
-      "description": "Some awesome event!",
-      "id": "2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"
-    }
-  ],
-  "users": []
-}
+{"events":[{"title":"A new event","image":"https://www.eventbookings.com/wp-content/uploads/2024/01/Corporate-events-are-gatherings-that-companies-or-organisations-host-for-their-stakeholders-clients-or-staff-1024x683.jpg","date":"2025-03-07","description":"Good Event","id":"3464a99e-cfff-4bfe-a887-45782e37d536"}],"users":[{"email":"tarak@login.com","password":"$2a$12$sbODfmTGtxxiCo/AZIWROucR1XRqsBmM.N/90VJ7p0te2Y3cDEjDm","id":"c676db4a-7e3f-4fa0-9561-4b042b75fa5c"},{"email":"vasu@test.com","password":"$2a$12$zOUcIG.NV3BqTUkq4RFQOOlrDy0wsiAeKBpserPf8dzYVbA738YYC","id":"6432ba36-7358-4cd6-944a-a6b01409e15e"},{"email":"johny@example.com","password":"$2a$12$U36iWMY0ICcBUocSK0NiuOmXTlaV4hnroEhDfICP5EnWGfh/gR4fC","id":"e0c60826-1f3a-479d-b600-15101224b213"}]}
