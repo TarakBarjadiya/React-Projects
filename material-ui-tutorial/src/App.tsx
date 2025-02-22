@@ -1,7 +1,13 @@
+import { MuiButtons } from './components/MuiButtons';
+// import { MuiTypography } from './components/MuiTypography';
+
 function App() {
   return (
     <>
-      <h1>Hello World!!</h1>
+      <div className="App">
+        {/* <MuiTypography /> */}
+        <MuiButtons />
+      </div>
     </>
   );
 }
