@@ -5,14 +5,35 @@ import { fetchEvent, queryClient, updateEvent } from '../../util/http.js';
 
 import Modal from '../UI/Modal.jsx';
 import EventForm from './EventForm.jsx';
-import LoadingIndicator from '../UI/LoadingIndicator.jsx';
 import ErrorBlock from '../UI/ErrorBlock.jsx';
+
+export function loader({ params }) {
+  return queryClient.fetchQuery({
+    queryKey: ['events', params.id],
+    queryFn: ({ signal }) => fetchEvent({ signal, id: params.id }),
+    staleTime: 15000,
+  });
+}
+
+//! adding below code no longer does optimistic update
+//* import { redirect, useSubmit } from 'react-router-dom';
+// const submit = useSubmit()
+// function handleSubmit(formData) {
+//   submit(formData, { method: 'PUT' });
+// }
+// export async function action({ request, params }) {
+//   const formData = await request.formData();
+//   const updatedEventData = Object.fromEntries(formData);
+//   await updateEvent({ id: params.id, event: updatedEventData });
+//   await queryClient.invalidateQueries(['events']);
+//   return redirect('../');
+// }
 
 export default function EditEvent() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { data, isError, isPending, error } = useQuery({
+  const { data, isError, error } = useQuery({
     queryKey: ['events', id],
     queryFn: ({ signal }) => fetchEvent({ id, signal }),
   });
@@ -20,12 +41,12 @@ export default function EditEvent() {
   const { mutate } = useMutation({
     mutationFn: updateEvent,
     onMutate: async (data) => {
-      const updatedEventData = data.event;
+      const myEvent = data.event;
 
       await queryClient.cancelQueries({ queryKey: ['events', id] });
       const previousEvent = queryClient.getQueryData(['events', id]);
 
-      queryClient.setQueryData(['events', id], updatedEventData);
+      queryClient.setQueryData(['events', id], myEvent);
 
       return { previousEvent }; //this is context object which is below
     },
@@ -47,14 +68,6 @@ export default function EditEvent() {
   }
 
   let content;
-
-  if (isPending) {
-    content = (
-      <div className="center">
-        <LoadingIndicator />
-      </div>
-    );
-  }
 
   if (isError) {
     content = (
